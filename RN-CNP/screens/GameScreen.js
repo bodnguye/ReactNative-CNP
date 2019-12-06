@@ -4,10 +4,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
 
-const [currentGuess, setCurrentGuess] = useState(
-    generateRandomBetween(1, 100, props.userChoice)
-);
-
 const generateRandomBetween = (min, max, exclude) => {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -20,6 +16,10 @@ const generateRandomBetween = (min, max, exclude) => {
 }
 
 const GameScreen = props => {
+    const [currentGuess, setCurrentGuess] = useState(
+        generateRandomBetween(1, 100, props.userChoice)
+    );
+
     return (
         <View style={styles.screen}>
             <Text>Opponent's Guess</Text>
